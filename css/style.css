@@ -1,0 +1,24 @@
+.pageContainer{
+    width: 750px;
+    margin: 0 auto;
+
+
+}
+
+.gameGrid{
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+    width: 100%;
+    border: 1px solid orange;
+
+}
+
+.gameGrid img {
+    width: 150px;
+    height: 150px;
+}
+
+h3{
+    text-align: center;
+}
