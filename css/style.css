@@ -1,21 +1,20 @@
-.pageContainer{
-    /* width: 750px; */
+.gameBoard{
     width: 600px;
     margin: 0 auto;
 
 
 }
 
-.gameGrid{
+.picsGrid{
     display: flex;
     flex-wrap: wrap;
     height: 750px;
     width: 100%;
-    border: 1px solid orange;
+    border: 2px solid red;
 
 }
 
-.gameGrid img {
+.picsGrid img {
     width: 150px;
     height: 150px;
 }
@@ -33,5 +32,15 @@ p{
     font-weight: bold;
     
 }
+.wonMessage{
+    color: yellow;
+    font-size: 30px;
+    /* text-shadow: 2px 2px 4px yellow; */
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    
+}
+
 
 

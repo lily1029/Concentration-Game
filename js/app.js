@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const cardsList = [
+    const cardsCatalog = [
         {
             name: 'ambulance',
             image: 'images/ambulance.png'
@@ -84,25 +84,27 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
     //here we define a randomized function to show different pictures
     //in different places on the board
-    cardsList.sort(() => 0.5 - Math.random());
-    //we select the div has class = gameGrid
-    const grid = document.querySelector('.gameGrid');
+    cardsCatalog.sort(() => 0.5 - Math.random());
+    //we select the div has class = picsGrid
+    const grid = document.querySelector('.picsGrid');
     //here is we track how many times players clicked on the board
     //about the worng guesses
-    const attemptsHolder = document.querySelector('.attemptsHolder');
+    const wrongGuessHolder = document.querySelector('.wrongGuessHolder');
     //here is we track how many times we win (find the matching pics)
-    const foundHolder = document.querySelector('.foundHolder');
+    const matcheingHolder = document.querySelector('.matchingHolder');
+    const wonMessageHolder = document.querySelector('.wonMessage');
+
     //here we can keep tracking the cards in the game
-    const cardsInGame = 10;
+    const cardsInGame = 5;
 
-    //initial game, attempts set to 0, win also set 0
-    let attempts = 0;
-    let foundCards = 0;
+    //initial game, wrongGuesses set to 0, win also set 0
+    let wrongGuesses = 0;
+    let matchingCards = 0;
 
-    //we need to assign the variables attempts to the html DOM to show times
-    attemptsHolder.textContent = attempts;
+    //we need to assign the variables wrongGuesses to the html DOM to show times
+    wrongGuessHolder.textContent = wrongGuesses;
     //also we assign the won times to the DOM to show numbers
-    foundHolder.textContent = foundCards;
+    matcheingHolder.textContent = matchingCards;
 
     //define the cards that we chose in an empty array
     //also store the id, so that we know the index of image 
@@ -114,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //loop all the images in the cardlist, create a card, put all the images in the card
         //then,append this card to the game bord grid,so that all the images show
-        for (let i = 0; i < cardsList.length; i++) {
+        for (let i = 0; i < cardsCatalog.length; i++) {
             let card = document.createElement('img');            
             card.setAttribute('src', 'images/placeholder.png');
             card.setAttribute('data-id', i);
@@ -125,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    //
+    //flip the images function
     function flipCard() {
         if (chosenCards.length != 2) {
             //here we define a variable called cardid. It has been clicked. so 
@@ -137,13 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.getAttribute('src') != 'images/blank/blank.png') {
                 //then, we need to push in an new array called chosencARDS
                 //so we know which card has been chosen
-                chosenCards.push(cardsList[cardid].name);
+                chosenCards.push(cardsCatalog[cardid].name);
                 //we also push the cardid to the array, so we can know which 
                 //one to flip back to the placeholder or to the blank one
                 chosenCardsIds.push(cardid);
                 //here we make card flip itself, replace the source, and send 
                 //back the original image value
-                this.setAttribute('src', cardsList[cardid].image);
+                this.setAttribute('src', cardsCatalog[cardid].image);
                 //if the chosen cards are 2, we need to check whether they are 
                 //match or not, also, we set timer here. 400 million seconds
                 //we also need to define another function called checkForMatch
@@ -155,12 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkForMatch(){
-        attempts++;
+        wrongGuesses++;
         let cards = document.querySelectorAll('img');
         let firstCard = chosenCardsIds[0];
         let secondCard = chosenCardsIds[1];
-        if(chosenCards[0] == chosenCards[1]){
-            foundCards++;
+        if(chosenCards[0] === chosenCards[1]){
+            matchingCards++;
             cards[firstCard].setAttribute('src', 'images/blank/blank.png');
             cards[secondCard].setAttribute('src', 'images/blank/blank.png');
             
@@ -171,10 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         chosenCards = [];
         chosenCardsIds = [];
-        attemptsHolder.textContent = attempts;
-        foundHolder.textContent = foundCards;
-        if(foundCards == cardsInGame){
-            alert('well done, you won !')
+        wrongGuessHolder.textContent = wrongGuesses;
+        matcheingHolder.textContent = matchingCards;
+        if(matchingCards == cardsInGame){
+            wonMessageHolder.innerText = "Well done, you won ! 🎉🎉🎉🎉🎉🎉🎊"
         }
 
 
@@ -183,3 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initiateBoard();
 
 })
+
+
+
+
