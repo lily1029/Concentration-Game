@@ -1,5 +1,6 @@
 .pageContainer{
-    width: 750px;
+    /* width: 750px; */
+    width: 600px;
     margin: 0 auto;
 
 
@@ -8,7 +9,7 @@
 .gameGrid{
     display: flex;
     flex-wrap: wrap;
-    height: 600px;
+    height: 750px;
     width: 100%;
     border: 1px solid orange;
 
@@ -21,5 +22,16 @@
 
 h3{
     text-align: center;
+    color: red;
+    font-size: 30px;
 }
+
+p{
+    text-align: center;
+    color: red;
+    font-size: large;
+    font-weight: bold;
+    
+}
+
 
