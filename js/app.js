@@ -1,3 +1,4 @@
+    /*----- constants -----*/
     const cardsCatalog = [
         {
             name: 'ambulance',
@@ -80,9 +81,8 @@
             image: 'images/frog.png'
         }
     ]
-    //here define a randomized function to show different pictures
-    //in different places on the gameboard
-    cardsCatalog.sort(() => 0.5 - Math.random());
+
+    /*----- cached element references -----*/
     // select the div has class = picsGrid
     const grid = document.querySelector('.picsGrid');
     //here is to track how many times players clicked on the board
@@ -93,9 +93,9 @@
     //here is to show the won messages
     const wonMessageHolder = document.querySelector('.wonMessage');
 
+    /*----- app's state (variables) -----*/
     //here to set a variable to find 5 matching pics, player will win
-    const cardsInGame = 5;
-
+    const cardsInGame = 5; 
     //initial game, wrongGuesses set to 0, win also set 0
     let wrongGuesses = 0;
     let matchingCards = 0;
@@ -111,6 +111,7 @@
     let chosenCards = [];
     let chosenCardsIds = [];
 
+    /*----- functions -----*/
     function initiateBoard() {
 
         //loop all the images in the cardsCatalog, create a card, put all the images in the card
@@ -119,6 +120,7 @@
             let card = document.createElement('img');            
             card.setAttribute('src', 'images/placeholder.png');
             card.setAttribute('data-id', i);
+            /*----- event listeners -----*/
             card.addEventListener('click', flipCard);
             grid.appendChild(card);
         }
@@ -182,6 +184,10 @@
         }
 
     }
+    
+    //here define a randomized function to show different pictures
+    //in different places on the gameboard
+    cardsCatalog.sort(() => 0.5 - Math.random());
 
     initiateBoard()
 
