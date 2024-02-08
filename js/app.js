@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+//document.addEventListener('DOMContentLoaded', () => {
 
     const cardsCatalog = [
         {
@@ -50,14 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'images/strawberry.png'
         },
         {
-            name: 'placeholder',
-            image: 'images/placeholder.png'
-        },
-        {
-            name: 'placeholder',
-            image: 'images/placeholder.png'
-        },
-        {
             name: 'oct',
             image: 'images/oct.png'
         },
@@ -80,6 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'pig',
             image: 'images/pig.png'
+        },
+        {
+            name: 'frog',
+            image: 'images/frog.png'
+        },
+        {
+            name: 'frog',
+            image: 'images/frog.png'
         }
     ]
     //here we define a randomized function to show different pictures
@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let chosenCards = [];
     let chosenCardsIds = [];
 
+    
 
     function initiateBoard() {
 
@@ -136,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //this refers to the element that received the click event 
             let cardid = this.getAttribute('data-id');
             //if source of the image is not blank, we should check it
-            if (this.getAttribute('src') != 'images/blank/blank.png') {
+            if (this.getAttribute('src') != 'images/blank.png') {
                 //then, we need to push in an new array called chosencARDS
                 //so we know which card has been chosen
                 chosenCards.push(cardsCatalog[cardid].name);
@@ -163,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let secondCard = chosenCardsIds[1];
         if(chosenCards[0] === chosenCards[1]){
             matchingCards++;
-            cards[firstCard].setAttribute('src', 'images/blank/blank.png');
-            cards[secondCard].setAttribute('src', 'images/blank/blank.png');
+            cards[firstCard].setAttribute('src', 'images/blank.png');
+            cards[secondCard].setAttribute('src','images/blank.png');
             
         }else{
             cards[firstCard].setAttribute('src', 'images/placeholder.png');
@@ -179,12 +180,26 @@ document.addEventListener('DOMContentLoaded', () => {
             wonMessageHolder.innerText = "Well done, you won ! 🎉🎉🎉🎉🎉🎉🎊"
         }
 
-
     }
 
-    initiateBoard();
 
-})
+    // if(matchingCards == cardsInGame){
+    //     setTimeout(message, 300000)   
+    // }else {
+    //     wonMessageHolder.innerText = "Try again !"
+    // }
+    
+    // let message = timeFunction();
+
+    // function timeFunction(){
+    //     wonMessageHolder.innerText = "Well done, you won !rtrtrrtrrtrt 🎉🎉🎉🎉🎉🎉🎊"
+    // }
+    
+    initiateBoard()
+
+    
+
+//})
 
 
 

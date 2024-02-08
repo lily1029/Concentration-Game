@@ -1,8 +1,6 @@
 .gameBoard{
     width: 600px;
     margin: 0 auto;
-
-
 }
 
 .picsGrid{
@@ -11,7 +9,6 @@
     height: 750px;
     width: 100%;
     border: 2px solid red;
-
 }
 
 .picsGrid img {
@@ -35,7 +32,6 @@ p{
 .wonMessage{
     color: yellow;
     font-size: 30px;
-    /* text-shadow: 2px 2px 4px yellow; */
     font-family: "Gill Sans", sans-serif;
     font-weight: bold;
     font-style: italic;
