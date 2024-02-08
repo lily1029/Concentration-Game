@@ -26,16 +26,14 @@ p{
     text-align: center;
     color: red;
     font-size: large;
-    font-weight: bold;
-    
+    font-weight: bold;   
 }
 .wonMessage{
     color: yellow;
     font-size: 30px;
     font-family: "Gill Sans", sans-serif;
     font-weight: bold;
-    font-style: italic;
-    
+    font-style: italic;   
 }
 
 
