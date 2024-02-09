@@ -8,3 +8,4 @@ these two cards flip to blank cards. If they are not same, they will flip back t
 
 If the players find matching pictures, the game board will also update the how 
 many matching scores the players made. The game board also accounts how many wrong guesses the players have made. 
+![game start](https://i.imgur.com/3Vlh3RQ.png)
